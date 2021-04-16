@@ -4,7 +4,7 @@ class pilha:
     pilhaArray, topo = None, None
     
     # inicializa
-    def __init__(self, tamanho:int):
+    def __init__(self):
         self.pilhaArray = []
         self.topo = -1
         pass
