@@ -37,9 +37,9 @@ class pilha:
             self.topo -= 1
             return discoRemovido
         else:
-            print('ERROR: P1')
+            print('Jogada Invalida (não é possivel mover um disco que não existe)')
+            return -1
             # avisar erro pois isso não deveria ser chamado se a pilha de discos estiver vazia
-            print
             pass
         
 
