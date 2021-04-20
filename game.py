@@ -10,12 +10,10 @@ class game:
         self.nJogadas = 0
 
         for _ in range (3):
-            self.listaPilhas.append(pilha())
+            self.listaPilhas.append(pilha(numeroDiscos))
         
-
         for _ in reversed(range(numeroDiscos)):
             self.listaPilhas[0].inserir(_)
-        pass
 
 
     # tenta realizar a jogada, se não for possivel, a jogada é desfeita
@@ -35,14 +33,10 @@ class game:
                 print("Jogada invalida um disco não pode ser colocado ejm cima de um disco de valor menor")
                 self.nJogadas -= 1
                 foiAnulado = True
-                pass
 
-            
-
-            if game.condicaoVitoria(self.listaPilhas, self.nDiscos):
+            if game.condicaoVitoria():
                 print("você venceu")
         return([self.nJogadas, game.condicaoVitoria(self.listaPilhas, self.nDiscos)])
-        pass
 
 
     def getAllPilhas(self):
@@ -50,59 +44,9 @@ class game:
         for _ in range(3):
             allPilhas.append(self.listaPilhas[_].pilhaArray)
         return(allPilhas)
-        pass
 
 
-    def condicaoVitoria(listaPilhas, _nDiscos):
-        if (len(listaPilhas[2].pilhaArray) == _nDiscos):
+    def condicaoVitoria(self):
+        if (len(self.listaPilhas[2].pilhaArray) == self.nDiscos):
             return True
         return False
-        pass
-
-    pass
-
-
-
-
-
-
-
-'''
-partida = game(3)
-print(partida.getAllPilhas())
-print(partida.jogada(0, 2))
-
-# jogada falha para testes
-print(partida.getAllPilhas())
-print(partida.jogada(0, 2))
-
-print(partida.getAllPilhas())
-print(partida.jogada(0, 1))
-print(partida.getAllPilhas())
-print(partida.jogada(2, 1))
-print(partida.getAllPilhas())
-print(partida.jogada(0, 2))
-print(partida.getAllPilhas())
-print(partida.jogada(2, 1))
-print(partida.getAllPilhas())
-print(partida.jogada(1, 0))
-print(partida.getAllPilhas())
-print(partida.jogada(1, 2))
-print(partida.getAllPilhas())
-print(partida.jogada(0, 2))
-print(partida.getAllPilhas())
-'''
-
-partida = game(2)
-
-print(partida.jogada(0,2))
-print(partida.getAllPilhas())
-
-print(partida.jogada(0,1))
-print(partida.getAllPilhas())
-
-print(partida.jogada(2,1))
-print(partida.getAllPilhas())
-
-print(partida.jogada(0,2))
-print(partida.getAllPilhas())
