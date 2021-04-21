@@ -26,7 +26,9 @@ if __name__ == '__main__':
 
     while True:
         exibicao(partida.getTorres())
-        if partida.jogada(int(input("Qual a pilha de origem?" + '\n')), int(input("Qual a pilha de destino?" + '\n'))):
+        partida.jogada(int(input("Qual a pilha de origem?" + '\n')), int(input("Qual a pilha de destino?" + '\n')))
+        if partida.condicaoVitoria():
+            print("Vencedor")
             break
         
         
