@@ -1,15 +1,14 @@
-from game import game;
+from Jogo.game import game
+from JogadoresAutomatizados.dfs import dfs
 
 def exibicao(pilhas: list):
-
     def verificarVazio(valor: int):
         if valor == 0:
             return "( )"
         else:
             return f"({valor})"
 
-
-    for valor in reversed(range(len(pilhas))):
+    for valor in reversed(range(len(pilhas[0]))):
         for torre in range(len(pilhas)):
             if torre == 0: 
                 print('\n'+ f" {verificarVazio(pilhas[torre][valor])}", end=" ")
@@ -23,6 +22,13 @@ if __name__ == '__main__':
     
     discos = int(input("Com quantos discos você quer jogar?" + '\n'))
     partida = game(discos)
+    machine = dfs(partida)
+
+    manual = machine.jogar()
+    print("Esse foi o caminho da vitória encontrado")
+    for comando in reversed(manual):
+        print(f"O comando é {comando.pegarValor(1)}")
+
 
     while True:
         exibicao(partida.getTorres())

@@ -1,12 +1,12 @@
 class torre:
     pilhaArray, topo = None, None
-    
+
     # inicializa
     def __init__(self, nDiscos):
         self.pilhaArray = [n * 0 for n in range(nDiscos)]
         self.topo = -1
 
-    def inserir(self, disco:int) -> bool:
+    def inserir(self, disco: int) -> bool:
         if self.topo == -1:
             self.topo += 1
             self.pilhaArray[self.topo] = disco
@@ -27,10 +27,7 @@ class torre:
             return discoRemovido
         else:
             return 0
-    
+
     def getTorre(self) -> list:
         return self.pilhaArray
 
-
-    
-        
