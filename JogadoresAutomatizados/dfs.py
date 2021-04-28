@@ -85,23 +85,12 @@ class dfs:
     #-------------
 
     def jogar(self):
-        # espacos_ja_visitados = bbs
-        # estado_atual = ec
-        # pilha_de_decisoes = lne
-        # caminho_da_vitoria = le
         inicial = node(None,[[0,0],self.jogo.getEstadoDoJogo(), self.jogo.getTorres()])
         self.estado_atual = inicial
         self.caminho_da_vitoria.insert(0,inicial)
         self.pilha_de_decisoes.insert(0,inicial)
-        contador = 0
         
         while(len(self.pilha_de_decisoes) != 0):
-            contador += 1
-
-            print(" ")
-            print(f"contador = {contador}")
-            print(" ")
-
             
             if self.estado_atual.pegarValor(3) == self.jogo.getEstadoObjetivo():
                 print("achamos a vitória")
