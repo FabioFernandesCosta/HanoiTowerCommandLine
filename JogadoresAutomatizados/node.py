@@ -31,3 +31,6 @@ class node:
 
     def reiniciarNos(self):
         self.index = 0
+
+    def removerFilho(self, deserdado):
+        self.filhos.remove(deserdado)
