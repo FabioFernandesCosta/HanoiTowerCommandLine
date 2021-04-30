@@ -10,8 +10,7 @@ def exibicao(pilhas: list):
             return "( )"
         else:
             return f"({valor})"
-
-    print("\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n  \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n")
+    print('\n')
     for valor in reversed(range(len(pilhas[0]))):
         for torre in range(len(pilhas)):
             if torre == 0:
