@@ -4,6 +4,9 @@ from JogadoresAutomatizados.bfs import bfs
 import time
 
 
+
+
+
 def exibicao(pilhas: list):
     def verificarVazio(valor: int):
         if valor == 0:

@@ -85,18 +85,20 @@ class dfs:
     #-------------
 
     def jogar(self):
-        inicial = node(None,[[0,0],self.jogo.getEstadoDoJogo(), self.jogo.getTorres()])
-        self.estado_atual = inicial
-        self.caminho_da_vitoria.insert(0,inicial)
-        self.pilha_de_decisoes.insert(0,inicial)
+
+        inicial = node(None,[[0,0],self.jogo.getEstadoDoJogo(), self.jogo.getTorres()]) #
+        
+        self.estado_atual = inicial #
+        self.caminho_da_vitoria.insert(0,inicial) #
+        self.pilha_de_decisoes.insert(0,inicial) #
         
         while(len(self.pilha_de_decisoes) != 0):
             
-            if self.estado_atual.pegarValor(3) == self.jogo.getEstadoObjetivo():
+            if self.estado_atual.pegarValor(3) == self.jogo.getEstadoObjetivo(): #
                 print("achamos a vitória")
                 return self.caminho_da_vitoria
             
-            self.criarFilhos(self.estado_atual, self.estado_atual.pegarValor(2))
+            self.criarFilhos(self.estado_atual, self.estado_atual.pegarValor(2)) #
             filhos = self.estado_atual.pegarFilhos()
 
             if any([self.estado_atual.quantidadeDeFilhos == 0, self.verificarEspacosDeEstadosNaLista(filhos,self.caminho_da_vitoria), self.verificarEspacosDeEstadosNaLista(filhos, self.pilha_de_decisoes)]):
@@ -119,8 +121,8 @@ class dfs:
                     if all([not filhos[filho].pegarValor(3) in pilhaDeDecisao, not filhos[filho].pegarValor(3) in caminhoDaVitoria]):
                         self.pilha_de_decisoes.insert(0,filhos[filho])
 
-                self.estado_atual = self.pilha_de_decisoes[0]
-                self.caminho_da_vitoria.insert(0,self.estado_atual)
+                self.estado_atual = self.pilha_de_decisoes[0] #
+                self.caminho_da_vitoria.insert(0,self.estado_atual) #
             
         return False
 
