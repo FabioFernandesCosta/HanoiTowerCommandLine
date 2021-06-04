@@ -17,3 +17,4 @@ Para a torre 1 conseguir mover todos os seus discos para outra torre, com o meno
 ela movera ((2 ^ 3) - 1), que é o mesmo que 7
 já a torre 2 e 3 tem -1 movimento para vencer, pois não existem discos ali, por isso é importante só aplicar a função nas torres que tem disco
 Essa função será nossa heurística, ou seja, nos guiaremos baseados na quantidade de movimentos restantes para a melhor vitória possivel.
+Já a HeuristicaAStar se baseia em duas contas, a primeira é o numero de discos que estão presentes na primeira e segunda torre, a segunda conta, é equivalente ao numero de discos presentes na terceira torre que são menores que qualquer um dos discos presentes nas outras duas torres multiplicado por 2.

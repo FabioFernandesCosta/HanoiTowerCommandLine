@@ -2,6 +2,7 @@ from JogadoresAutomatizados.guloso import guloso
 from Jogo.game import game
 from JogadoresAutomatizados.dfs import dfs
 from JogadoresAutomatizados.bfs import bfs
+from JogadoresAutomatizados.aEstrela import aEstrela
 import time
 
 
@@ -34,6 +35,7 @@ if __name__ == '__main__':
     print("2 - Agente BFS")
     print("3 - Agente DFS")
     print("4 - Agente Guloso")
+    print("5 - Agente A*")
 
     player = int(input())
 
@@ -124,5 +126,28 @@ if __name__ == '__main__':
                 print("\n Vencedor")
                 
                 break
+    
+    elif player == 5:
+        print("Você escolheu o jogador A*")
+        machine = aEstrela(partida)
+        print("Buscando ações, por favor aguarde")
+        manual = machine.jogar()
+        exibicao(partida.getTorres())
+        while len(manual) != 0:
+
+            if(len(manual) > 14):
+                tempo = 30/len(manual)
+            else:
+                tempo = 1.5
+
+            time.sleep(tempo)
+            comando = manual.pop(0)
+            origem = comando[0]
+            destino = comando[1]
+            partida.jogada(origem, destino)
+            exibicao(partida.getTorres())
+        else:
+            print("\n Vencedor")
+
 
 #exibicao(partida.getTorres())
